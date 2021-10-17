@@ -99,6 +99,9 @@ public class ProductController {
 			resp = new ResponseEntity<String>("record not found ", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		System.out.println("inside update method");
+		System.out.println("inside update method");
+		System.out.println("inside update method");
+		System.out.println("inside update method");
 		return resp;
 	}
 	
