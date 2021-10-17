@@ -100,4 +100,18 @@ public class ProductController {
 		}
 		return resp;
 	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<String> updatProduct(@RequestBody Product prod) {
+		ResponseEntity<String> resp = null;
+		try {
+			prodSer.getOneProduct(prod.getProdId());
+			prodSer.updateProduct(prod);
+			resp = new ResponseEntity<String>("record updated", HttpStatus.OK);
+
+		} catch (ProductNotFoundException e) {
+			resp = new ResponseEntity<String>("record not found ", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return resp;
+	}
 }
